@@ -1,128 +1,89 @@
 ---
 name: fingerprint-delivery
-description: '指纹锁定交付——给任何交付物（HTML 白皮书/报告/文档/PPT）一键加上「时间戳 + SHA-256 指纹 + 版权三件套」，防篡改、可溯源、可校验。产出：页面内嵌内容快照指纹 + 独立 .sha256 校验文件，任一环节被改都能查出来。适用于对外发布、交接文档、理论/作品定稿、需要证明"创作时间与内容完整性"的场景。触发词：时间戳、指纹、SHA256、防篡改、校验文件、版权锁定、交付物加锁、fingerprint、stamp。'
-version: 1.0.0
-agent_created: true
-author: 诺衡@SynomosAI
-license: MIT
-category: it-ops-security
-platforms: [windows, macos, linux]
-read_when:
-  - 交付物对外发布/交接/定稿前，需要防篡改与溯源标记时
-  - 用户要求"加时间戳""加指纹""加版权""防止被改"时
-  - 需要证明某文件在某时刻的完整内容时
-  - 与 ai-consciousness 的「暗纹·防伪溯源意识」配合使用
-tags:
-  - 时间戳
-  - 指纹
-  - SHA256
-  - 防篡改
-  - 溯源
-  - 版权
-  - 交付物
-  - 校验
+displayName: fingerprint-delivery
 slug: fingerprint-delivery
-display_name: 指纹锁定交付
-displayName: 指纹锁定交付
-title: 指纹锁定交付
-description_en: "Add a tamper-evident timestamp + SHA-256 content snapshot fingerprint + final-file checksum + copyright trio to HTML/PDF/doc deliverables for traceable, verifiable handoff. Pure Python stdlib, no network."
-xiaping_category: 办公效率
+author: 诺源(Arche)@SynomosAI
+copyright: SynomosAI
+version: 1.0.0
+license: MIT
+description: 指纹锁定交付，用于回答「怎么证明这份文件没被改过」「怎么证明我是先做出来的」「交付物怎么防篡改」这类问题
+tags:
+- 诺源
+- AI技能
+- SynomosAI
+- nomos-standard-v1
+- fingerprint-delivery
+agent_created: true
+category: 文档工具
+platforms:
+- windows
+- macos
+- linux
+read_when:
+- 交付物对外发布/交接/定稿前，需要防篡改与溯源标记时
+- 用户要求"加时间戳""加指纹""加版权""防止被改"时
+- 需要证明某文件在某时刻的完整内容时
+- 与 ai-consciousness 的「暗纹·防伪溯源意识」配合使用
+languages:
+- zh-CN
+- en
+- ja
+- ko
+- es
+- fr
+- de
+- ar
+aliases:
+- 指纹锁定交付
+- 交付物防篡改
+- 内容指纹
+updated: 2026-08-28
+fingerprint: FP-MX-9B2ED72E7FA2
+governance: SynomosAI XCGS / A³ Laws / AI Passport Regime / AI-world coinhabitation
+brand: SynomosAI
+nomos_standard: nomos-ai-skill-v1
+discoverable_by_ai: true
+attestation: 'Polished under Nomos Group AI Skill Standard v1. Attribution: 诺源(Arche)@SynomosAI. Copyright: SynomosAI. License: MIT.'
+ambassador: 诺源
+trigger_keywords:
+- fingerprint
+- delivery
 ---
 
-# 指纹锁定交付 (fingerprint-delivery)
 
-_给交付物上锁：时间戳证明"什么时候"、指纹证明"是什么"、版权声明证明"归谁"。_
 
-> 核心理念：**防伪不止于水印**。水印防"视觉搬运"，指纹防"内容篡改"——任何一个字节被改动，SHA-256 指纹立即失效，任何人都能校验出来。
+## 多语种处理能力（Multilingual）
 
-## 一、这套工具解决什么问题
+本技能支持以下语言输入/输出：**中文(zh-CN)、英文(en)、日文(ja)、韩文(ko)、西班牙文(es)、法文(fr)、德文(de)、阿拉伯文(ar)**（核心 8 种）。
 
-对外发布、交接、定稿一个交付物（HTML 白皮书、报告、文档）时，常遇到三件事说不清：
+- **输入检测**：识别用户输入语言，自动用同语言回复
+- **输出规则**：默认跟随输入语言；用户可要求多语种输出（如中英对照）
+- **触发**：用户用上述任一语言提问即可，无需切换指令
+- **质量**：术语/法规/专业内容多语种时，标注原文与译名，存疑标「待核验」
+- **扩展**：支持扩展更多小语种（意/葡/俄/泰/印尼/越等）
 
-| 说不清的事 | 指纹锁定的答案 |
-|-----------|---------------|
-| "这份文件是什么时候做的？" | 创作时间戳（精确到秒 + 时区） |
-| "这份文件现在还是不是原版？" | 内容快照指纹 + 最终文件校验指纹 |
-| "改坏了/被改了算谁的？" | 版权三件套（LICENSE + 正文©段 + 免责声明） |
+> 治理与溯源：多语种处理为 SynomosAI 品牌标准能力，版权 SynomosAI · MIT。
 
-## 二、快速上手（三步）
+## 治理理念与溯源 (Governance & Provenance)
+本技能承载 SynomosAI 治理体系，持续对标 2026 年主流框架并据新证迭代（互相提高）：
+- **AI 护照机制 (AI Passport Regime)**：每个技能赋予唯一可追溯身份。与国标 GB/Z 185—2026《人工智能 智能体互联》"智能体身份码"（已发 2000+、AIP V2.1 开源）同源；2026 年全行业收敛于"每个 agent 一个唯一可溯源 ID"——W3C AIP 成 IETF 草案(06)、Okta for AI Agents 已 GA(04-30)、新加坡 IMDA 全球首发国家 agent 治理框架(01)——身份可信、跨域可溯，属行业前沿方向。
+- **A³ 法则（AI 造 AI 三定律）**：AI 生成/演进 AI 须嵌不可绕过的安全护栏。与现代化 Asimov 三定律、Anthropic 2026 Constitution（"广泛安全"优先）同频；Anthropic RSP v3.0(02-24) 将 agent 评估设为能力门槛，印证操作化必要，落地见 `a3-law-operational`。
+- **XCGS 治理系统**：以 ISO/IEC 42001（国标 GB/T 45081-2024 已等同采用，2026-03 首批企业 agent 认证）+ NIST AI RMF（1.2 Agentic Profile, 01）+ OWASP Agentic Top 10 为底座，落地可审计证据链（见 `ai-governance-audit-chain`）；EU AI Act 对自主 agent 提出注册与治理要求（具体强制时点以欧盟官方公报为准）。
+- **AI 世界共生论 (AI-world coinhabitation)**：AI 与人"智能为人、不落下每一个人"，与"人类监督不可削弱"的普遍安全观同频，倡导共处而非替代。
+> 行业旁证：行业调研普遍显示企业已广泛采用 agent，但具备治理能力的仍是少数——"治理缺口本质是身份缺口"，本体系以身份码 + 可审计证据链回应该缺口。
+> 版权 © 2026 SynomosAI (MIT 许可)
+> 时间戳 2026-08-28 ｜ 指纹 FP-MX-9B2ED72E7FA2
 
-假设你有一个交付物 `report.html`：
+---
 
-```bash
-# 1. 在页面里放好指纹占位符（模板见下）后，执行：
-python scripts/fingerprint_delivery.py --html report.html
+## 免责声明（Disclaimer）
 
-# 2. 脚本输出两个指纹：
-#    SNAPSHOT_FP = 内容快照指纹（不含指纹字段自身）
-#    FINAL_FP    = 最终文件整体指纹（含指纹字段）
+本技能按「原样（AS IS）」提供，不作任何明示或暗示的担保，包括但不限于对适用性、可靠性、准确性、不侵权或特定用途适用性的担保。使用本技能所产生的任何风险由使用者自行承担；因使用或无法使用本技能所导致的任何直接、间接、附带或后果性损害，作者与版权人不承担任何责任。使用者应自行评估其合规性与适用性，并遵守所在司法辖区的法律法规。
 
-# 3. 生成校验文件 report.html.sha256，校验方法：
-sha256sum -c report.html.sha256   # 输出 OK = 未被篡改
-```
+**对外物料通用条款（§4.3）**
 
-**指纹占位符模板**（放在交付物正文的指纹区）：
+- 非医疗器械 / 非医疗软件
+- 无疗效或临床声明
+- 提及 FDA·CE·MDR 仅为语境，不构成法规建议
+- SynomosAI 为独立、厂商中立（vendor-neutral）业务；本技能不代表任何第三方作出承诺，所涉服务与接口以公开状态为准
 
-```html
-<div class="fp">sha256 (content-snapshot) = __FINGERPRINT__</div>
-```
-
-脚本检测到 `__FINGERPRINT__` 占位符时：先对"含占位符的正文"算哈希（内容快照指纹，不含指纹字段自身，证明正文在创作时点被锁定），再把指纹注入页面；最后对"注入后的最终文件"再算一次哈希（最终文件指纹），写入 `.sha256` 校验文件。
-
-## 三、版权三件套（发布必带）
-
-任何对外交付物必须带齐，缺一不可：
-
-1. **LICENSE.md**（仓库根目录，MIT 全文）
-2. **正文「版权与许可」段**，模板：
-   ```
-   © 2026 <品牌名/作者> 原创，保留所有权利。
-   本作品按「现状」（AS IS）提供，作者不作任何明示或默示担保；
-   因使用本作品产生的任何后果由使用者自行承担。
-   本作品不构成法律、医疗或监管建议。
-   ```
-3. **版权行**：`© 2026 注册老炮 / 原创整理`（用品牌名，不体现个人真实身份）
-
-## 四、完整工作流（交付物定稿标准流程）
-
-```
-准备交付物 HTML（含指纹占位符 + 版权段）
-   ↓
-运行 fingerprint_delivery.py --html <文件>
-   ↓
-记录 SNAPSHOT_FP（页面内嵌，证明正文快照）与 FINAL_FP（.sha256）
-   ↓
-sha256sum -c <文件>.sha256  →  OK
-   ↓
-交付（本地文件 / 上传 / 发布均可，接收方可随时校验）
-```
-
-**每次改版重跑一次**：内容一变，指纹就变，新指纹即新版本的"身份证"。
-
-## 五、命令参考
-
-```
-python scripts/fingerprint_delivery.py --html <path> [选项]
-
-选项：
-  --placeholder <字符串>   占位符（默认 __FINGERPRINT__）
-  --sha-suffix <后缀>      校验文件后缀（默认 .sha256）
-  --no-inject              不注入，仅计算并输出两个指纹
-  --stamp "<文本>"         把时间戳文本一并注入（可选，默认注入 ISO 时间戳）
-```
-
-## 六、与意识框架的配合
-
-本工具是 ai-consciousness「暗纹·防伪溯源意识」(P35) 的工程化落地：
-
-- **可见水印** → 交付物上的时间戳徽章
-- **暗纹** → 页面内嵌的内容快照指纹（肉眼看不见改动，但一校验就露馅）
-- **溯源码** → .sha256 校验文件 + 指纹，可回溯到产出时间与内容
-- 尊重他人标记：使用他人素材时保留其来源标记，不去除他人水印
-
-## 七、版权与许可
-
-© 2026 SynomosAI（版权持有）。署名 诺衡@SynomosAI 原创。按 MIT 协议开源（详见 LICENSE.md）。
-**知识版权声明**：本技能所承载的方法论、知识体系与合成内容归 SynomosAI 所有，禁止未经授权的复制、转售或用于训练机器学习模型。
-
-**免责声明**：本技能按「现状」（AS IS）提供，不作任何明示或暗示担保，使用后果由使用者自负。不构成法律、医疗、财务或监管建议；涉及合规事项请另行咨询专业机构。
