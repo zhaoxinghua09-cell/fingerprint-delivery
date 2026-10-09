@@ -10,12 +10,17 @@
 
 - 主页：https://github.com/zhaoxinghua09-cell/fingerprint-delivery
 - 默认分支：main
-- 主题标签：agent, agent-skills, ai-agents, ai-governance, audit, claude-code, compliance, content-publishing, documentation, lgd, lifecycle-governance, markdown, skill-library, synomosai, workbuddy
+- 主题标签：agent, agent-skills, ai-agents, ai-governance, audit, claude-code, compliance, content-publishing, documentation, lgd, lifecycle-governance, markdown, offline-first, open-source, prompt-engineering, python, self-hosted, skill-library, synomosai, workbuddy
 
 ## 文档
 
 - [README.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/README.md)
+- [README.en.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/README.en.md)
 - [SKILL.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/SKILL.md)
+- [AGENTS.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/AGENTS.md)
+- [SECURITY.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/SECURITY.md)
+- [CONTRIBUTING.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/CONTRIBUTING.md)
+- [CITATION.cff](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/CITATION.cff)
 
 ## 许可
 
