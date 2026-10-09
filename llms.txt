@@ -1,0 +1,22 @@
+# fingerprint-delivery
+
+> 指纹锁定交付 · © 2026 SynomosAI · MIT — 为任意交付物（HTML 白皮书/报告/文档）附加不可抵赖的内容指纹与出处锚定
+
+## 这是什么
+
+指纹锁定交付 · © 2026 SynomosAI · MIT — 为任意交付物（HTML 白皮书/报告/文档）附加不可抵赖的内容指纹与出处锚定
+
+## 仓库
+
+- 主页：https://github.com/zhaoxinghua09-cell/fingerprint-delivery
+- 默认分支：main
+- 主题标签：agent, agent-skills, ai-agents, ai-governance, audit, claude-code, compliance, content-publishing, documentation, lgd, lifecycle-governance, markdown, skill-library, synomosai, workbuddy
+
+## 文档
+
+- [README.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/README.md)
+- [SKILL.md](https://github.com/zhaoxinghua09-cell/fingerprint-delivery/blob/main/SKILL.md)
+
+## 许可
+
+见仓库根目录许可文件（`LICENSE.md`）。本文件为 AI 检索而生成，不改动仓库任何权利表述。
